@@ -1,3 +1,4 @@
+// Variables
 var pwdLength;
 var lowerCase;
 var upperCase;
@@ -6,12 +7,17 @@ var specialChar;
 
 function pwdRequirements() {
     pwdLength = prompt("How long do you want your password to be? Choose a length between 8 and 128.");
-    lowerCase = prompt("Do you want to include lower case letters?");
-    upperCase = prompt("Do you want to include upper case letters?");
-    numeric = prompt("Do you want to include numbers?");
-    specialChar = prompt("Do you want to include special characters?");
+    lowerCase = confirm("Do you want to include lower case letters?");
+    upperCase = confirm("Do you want to include upper case letters?");
+    numeric = confirm("Do you want to include numbers?");
+    specialChar = confirm("Do you want to include special characters?");
 
 }
 
 //document.getElementById("btn").addEventListener("click", pwdRequirements());
 pwdRequirements();
+console.log(pwdLength);
+console.log(lowerCase);
+console.log(upperCase);
+console.log(numeric);
+console.log(specialChar);
