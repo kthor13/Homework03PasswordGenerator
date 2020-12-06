@@ -1,0 +1,18 @@
+/* Page Title */
+.title1 {
+    text-align: center;
+} 
+
+/* Password Field */
+.card-text {
+    text-align: center;
+    border-style: dashed;
+    border-color: gray;
+    border-radius: 12px;
+    padding: 50px;
+} 
+
+/* Button */
+.btn {
+    box-align: center;
+} 
