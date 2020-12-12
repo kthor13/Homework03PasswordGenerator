@@ -17,14 +17,17 @@ var specials = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '?', '+', '='];
 
 
 function pwdRequirements() {
-    pwdLength = prompt("How long do you want your password to be? Choose a length between 8 and 128.");
+    pwdLength = prompt("How long do you want your password to be? Choose a length between 8 and 128.", 
+        if (pwdLength < 8 || > 128)
+        alert("Password length is not between 8 and 128!"));
     lowerCase = confirm("Do you want to include lower case letters?");
     upperCase = confirm("Do you want to include upper case letters?");
     numeric = confirm("Do you want to include numbers?");
     specialChar = confirm("Do you want to include special characters?");
+
 //Build arrays based on parameters
 if (lowerCase === true && upperCase === true && numeric === true && specialChar === true) {
-    
+    var pwdArray = letters.concat()
 }
 
 }
