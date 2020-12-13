@@ -8,8 +8,8 @@ var pwdArray = [];
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// function to get user's password requirements
-function pwdRequirements () {
+// Create password
+function generatePassword () {
   var pwdLength = parseInt(prompt("How long do you want your password to be? Choose a length between 8 and 128."));
   while ((Number.isNaN(pwdLength)) || pwdLength < 8 || pwdLength > 128) {
       //if (pwdLength < 8 || pwdLength > 128 || pwdLength === NaN) {
@@ -21,41 +21,54 @@ function pwdRequirements () {
   var upperCase = confirm("Do you want to include upper case letters?");
   var numeric = confirm("Do you want to include numbers?");
   var specialChar = confirm("Do you want to include special characters?");
-  console.log(pwdLength);
-  console.log(lowerCase);
-  console.log(upperCase);
-  console.log(numeric);
-  console.log(specialChar);
-}
+  if (!lowerCase && !upperCase && !numeric && !specialChar) {
+    alert("You must choose at least one!");
+  }
 
-// Create password
-function generatePassword () {
-  if (lowerCase === true && upperCase === true && numeric === true && specialChar === true) {
+  if (lowerCase && upperCase && numeric && specialChar) {
     pwdArray = lowerLetters.concat(upperLetters, numbers, specials);
     console.log(pwdArray);
   }
+  else if (lowerCase && upperCase && numeric) {
+    pwdArray = lowerLetters.concat(upperLetters, numbers);
+    console.log(pwdArray);
+  }
+  else if (lowerCase && upperCase && specialChar) {
+    pwdArray = lowerLetters.concat(upperLetters, specials);
+  }
+  else if (upperCase && numeric && specialChar) {
+    pwdArray = upperLetters.concat(numbers, specials);
+  }
+  else if (lowerCase && numeric && specialChar) {
+    pwdArray = lowerLetters.concat(numbers, specials);
+  }
+  else if (lowerCase && upperCase) {
+    pwdArray = lowerLetters.concat(upperLetters);
+  }
+  else if (lowerCase && numeric) {
+    pwdArray = lowerLetters.concat(numbers);
+  }
+  
+  
+  //password variable
+  var password = "";
 
   // for loop to build password
-  for (var i = 0; i < pwdLength.length; i++) {
-  
+  for (var i = 0; i < pwdLength; i++) {
+    var randItem = Math.floor(Math.random() * pwdArray.length);
+    password += pwdArray[randItem];
   }
-
-  
+  console.log(password);
+  return password;
 }
 
 // Write password to the #password input
 function writePassword() {
-  pwdRequirements();
-  if (!lowerCase && !upperCase && !numeric && !specialChar) {
-    alert("You must choose at least one!");
-    pwdRequirements();
-  }
+ 
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   
-  pwdArray = lowerLetters.concat(upperLetters, numbers, specials);
-  console.log(pwdArray);
-  
+    
   passwordText.value = password;
 
 }
