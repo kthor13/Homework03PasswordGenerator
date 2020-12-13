@@ -11,11 +11,11 @@ var generateBtn = document.querySelector("#generate");
 // function to get user's password requirements
 function pwdRequirements () {
   var pwdLength = parseInt(prompt("How long do you want your password to be? Choose a length between 8 and 128."));
-  while (pwdLength < 8 || pwdLength > 128 || pwdLength === isNaN) {
-      if (pwdLength < 8 || pwdLength > 128 || pwdLength === isNaN) {
+  while ((Number.isNaN(pwdLength)) || pwdLength < 8 || pwdLength > 128) {
+      //if (pwdLength < 8 || pwdLength > 128 || pwdLength === NaN) {
       alert("Your password must be a number between 8 and 128 characters!");
       pwdLength = parseInt(prompt("How long do you want your password to be? Choose a length between 8 and 128."));
-    } 
+    //} 
   }  
   var lowerCase = confirm("Do you want to include lower case letters?");
   var upperCase = confirm("Do you want to include upper case letters?");
@@ -26,6 +26,21 @@ function pwdRequirements () {
   console.log(upperCase);
   console.log(numeric);
   console.log(specialChar);
+}
+
+// Create password
+function generatePassword () {
+  if (lowerCase === true && upperCase === true && numeric === true && specialChar === true) {
+    pwdArray = lowerLetters.concat(upperLetters, numbers, specials);
+    console.log(pwdArray);
+  }
+
+  // for loop to build password
+  for (var i = 0; i < pwdLength.length; i++) {
+  
+  }
+
+  
 }
 
 // Write password to the #password input
@@ -44,24 +59,6 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
-// Create password
-function generatePassword () {
-  if (lowerCase === true && upperCase === true && numeric === true && specialChar === true) {
-    pwdArray = lowerLetters.concat(upperLetters, numbers, specials);
-    console.log(pwdArray);
-  }
-
-  // for loop to build password
-  for (var i = 0; i < pwdLength.length; i++) {
-  
-  }
-
-  
-}
-
-
- 
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
