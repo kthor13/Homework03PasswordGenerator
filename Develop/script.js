@@ -27,11 +27,9 @@ function generatePassword () {
 
   if (lowerCase && upperCase && numeric && specialChar) {
     pwdArray = lowerLetters.concat(upperLetters, numbers, specials);
-    console.log(pwdArray);
   }
   else if (lowerCase && upperCase && numeric) {
     pwdArray = lowerLetters.concat(upperLetters, numbers);
-    console.log(pwdArray);
   }
   else if (lowerCase && upperCase && specialChar) {
     pwdArray = lowerLetters.concat(upperLetters, specials);
@@ -47,6 +45,30 @@ function generatePassword () {
   }
   else if (lowerCase && numeric) {
     pwdArray = lowerLetters.concat(numbers);
+  }
+  else if (lowerCase && specialChar) {
+    pwdArray = lowerLetters.concat(specialChar);
+  }
+  else if (upperCase && numeric) {
+    pwdArray = upperLetters.concat(numbers);
+  }
+  else if (upperCase && specialChar) {
+    pwdArray = upperLetters.concat(specials);
+  }
+  else if (numeric && upperCase) {
+    pwdArray = numbers.concat(specials);
+  }
+  else if (lowerCase) {
+    pwdArray = lowerLetters;
+  }
+  else if (upperCase) {
+    pwdArray = upperLetters;
+  }
+  else if (numeric) {
+    pwdArray = numbers;
+  }
+  else if (specialChar) {
+    pwdArray = specials;
   }
   
   
