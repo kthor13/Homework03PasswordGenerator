@@ -55,7 +55,7 @@ function generatePassword () {
   else if (upperCase && specialChar) {
     pwdArray = upperLetters.concat(specials);
   }
-  else if (numeric && upperCase) {
+  else if (numeric && specialChar) {
     pwdArray = numbers.concat(specials);
   }
   else if (lowerCase) {
