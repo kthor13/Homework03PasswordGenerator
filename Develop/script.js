@@ -12,15 +12,15 @@ var generateBtn = document.querySelector("#generate");
 function generatePassword () {
   var pwdLength = parseInt(prompt("How long do you want your password to be? Choose a length between 8 and 128."));
   while ((Number.isNaN(pwdLength)) || pwdLength < 8 || pwdLength > 128) {
-      //if (pwdLength < 8 || pwdLength > 128 || pwdLength === NaN) {
       alert("Your password must be a number between 8 and 128 characters!");
       pwdLength = parseInt(prompt("How long do you want your password to be? Choose a length between 8 and 128."));
-    //} 
   }  
   var lowerCase = confirm("Do you want to include lower case letters?");
   var upperCase = confirm("Do you want to include upper case letters?");
   var numeric = confirm("Do you want to include numbers?");
   var specialChar = confirm("Do you want to include special characters?");
+
+ // If statements to build the array for the password based on the user's criteria.
   if (!lowerCase && !upperCase && !numeric && !specialChar) {
     alert("You must choose at least one!");
   }
@@ -34,13 +34,13 @@ function generatePassword () {
   else if (lowerCase && upperCase && specialChar) {
     pwdArray = lowerLetters.concat(upperLetters, specials);
   }
-  else if (upperCase && numeric && specialChar) {
-    pwdArray = upperLetters.concat(numbers, specials);
-  }
   else if (lowerCase && numeric && specialChar) {
     pwdArray = lowerLetters.concat(numbers, specials);
   }
-  else if (lowerCase && upperCase) {
+  else if (upperCase && numeric && specialChar) {
+    pwdArray = upperLetters.concat(numbers, specials);
+  }
+    else if (lowerCase && upperCase) {
     pwdArray = lowerLetters.concat(upperLetters);
   }
   else if (lowerCase && numeric) {
@@ -70,8 +70,7 @@ function generatePassword () {
   else if (specialChar) {
     pwdArray = specials;
   }
-  
-  
+    
   //password variable
   var password = "";
 
